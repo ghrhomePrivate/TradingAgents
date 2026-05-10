@@ -32,11 +32,19 @@ dependencies = [
     "yfinance>=0.2.63",
 ]
 
+[project.optional-dependencies]
+web = [
+    "gradio>=5.0,<6.0",
+    "markdown>=3.6",
+    "xhtml2pdf>=0.2.16",
+]
+
 [project.scripts]
 tradingagents = "cli.main:app"
+tradingagents-web = "web.app:main"
 
 [tool.setuptools.packages.find]
-include = ["tradingagents*", "cli*"]
+include = ["tradingagents*", "cli*", "web*"]
 
 [tool.setuptools.package-data]
 cli = ["static/*"]
